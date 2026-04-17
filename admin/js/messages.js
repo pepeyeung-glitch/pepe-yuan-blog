@@ -18,8 +18,10 @@ async function loadMessages() {
     }
 
     tbody.innerHTML = data.messages.map(function(msg) {
-      var date = new Date(msg.createdAt);
-      var timeStr = date.getFullYear() + '-' +
+      var rawDate = msg.createdAt || msg.created_at;
+      var date = new Date(rawDate);
+      var timeStr = isNaN(date.getTime()) ? '未知时间' :
+        date.getFullYear() + '-' +
         String(date.getMonth() + 1).padStart(2, '0') + '-' +
         String(date.getDate()).padStart(2, '0') + ' ' +
         String(date.getHours()).padStart(2, '0') + ':' +
