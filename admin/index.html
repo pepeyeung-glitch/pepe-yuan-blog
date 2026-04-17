@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仪表盘 — 后台管理</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="sidebar">
+      <div class="sidebar-logo">P & Y 管理</div>
+      <ul class="sidebar-nav">
+        <li><a href="/admin" class="active">仪表盘</a></li>
+        <li><a href="/admin/entries.html">内容管理</a></li>
+        <li><a href="/admin/messages.html">读者消息</a></li>
+        <li><a href="/admin/homepage-edit.html">首页设置</a></li>
+        <li><a href="/admin/about-edit.html">关于页设置</a></li>
+        <div class="sidebar-divider"></div>
+        <li><a href="/" target="_blank">查看网站</a></li>
+        <li><a href="#" onclick="logout()">退出登录</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <div class="page-header">
+        <h1 class="page-title">仪表盘</h1>
+        <a href="/admin/entry-form.html" class="btn btn-primary">+ 新建故事</a>
+      </div>
+
+      <div class="stats-grid" id="stats">
+        <div class="stat-card"><div class="stat-number" id="statTotal">-</div><div class="stat-label">全部故事</div></div>
+        <div class="stat-card"><div class="stat-number" id="statTravel">-</div><div class="stat-label">旅行</div></div>
+        <div class="stat-card"><div class="stat-number" id="statWedding">-</div><div class="stat-label">重要时刻</div></div>
+        <div class="stat-card"><div class="stat-number" id="statDaily">-</div><div class="stat-label">日常生活</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">最新故事</div>
+        <div id="latestStory">加载中...</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/admin/js/admin-common.js"></script>
+  <script src="/admin/js/dashboard.js"></script>
+</body>
+</html>

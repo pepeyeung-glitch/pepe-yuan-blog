@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我们的旅程 — Pepe & Yuan's Love Diary</title>
+  <meta name="description" content="Pepe & Yuan的旅程时间线">
+  <link rel="icon" type="image/png" href="/public/favicon.png">
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">P & Y</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">首页</a></li>
+      <li><a href="/about.html">关于</a></li>
+      <li><a href="/timeline.html" class="active">旅程</a></li>
+    </ul>
+    <div class="nav-hamburger" id="navHamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('/uploads/angkor3.jpg')"></div>
+    <div class="page-hero-content">
+      <div class="page-hero-label">Our Journey</div>
+      <h1 class="page-hero-title">我们的旅程</h1>
+    </div>
+  </div>
+
+  <!-- Journal Content -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="journal-filters" id="filters">
+        <button class="filter-btn active" data-category="">全部</button>
+        <button class="filter-btn" data-category="travel">旅行</button>
+        <button class="filter-btn" data-category="wedding">重要时刻</button>
+        <button class="filter-btn" data-category="daily">日常生活</button>
+      </div>
+
+      <div class="journal-grid" id="journalGrid">
+        <div class="loading" style="grid-column:1/-1;"><div class="loading-spinner"></div></div>
+      </div>
+
+      <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
+        <button class="load-more-btn" id="loadMoreBtn">加载更多</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo">P & Y</div>
+    <ul class="footer-nav">
+      <li><a href="/">首页</a></li>
+      <li><a href="/about.html">关于</a></li>
+      <li><a href="/timeline.html">旅程</a></li>
+    </ul>
+    <div class="footer-divider"></div>
+    <p class="footer-text">
+      Pepe & Yuan的爱情日记<br>
+      记录我们的旅程，也希望带来一点点温暖
+    </p>
+  </footer>
+
+  <script src="/public/js/main.js"></script>
+  <script src="/public/js/timeline.js"></script>
+</body>
+</html>

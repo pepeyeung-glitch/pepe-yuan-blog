@@ -1,0 +1,8 @@
+.vercel
+node_modules/
+.env
+sessions/
+*.tmp
+.vercel-tmp/
+.DS_Store
+.workbuddy/

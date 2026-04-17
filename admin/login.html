@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 — 后台管理</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body class="login-page">
+  <div class="login-card">
+    <div class="login-logo">P & Y</div>
+    <p class="login-subtitle">后台管理系统</p>
+    <div class="login-error" id="loginError"></div>
+    <form id="loginForm">
+      <div class="form-group">
+        <label class="form-label">用户名</label>
+        <input type="text" class="form-input" id="username" required autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label class="form-label">密码</label>
+        <input type="password" class="form-input" id="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">登录</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var errorEl = document.getElementById('loginError');
+      errorEl.style.display = 'none';
+
+      try {
+        var res = await fetch('/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value,
+          }),
+        });
+
+        var data = await res.json();
+        if (data.success) {
+          location.href = '/admin';
+        } else {
+          errorEl.textContent = data.error || '登录失败';
+          errorEl.style.display = 'block';
+        }
+      } catch (err) {
+        errorEl.textContent = '网络错误';
+        errorEl.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

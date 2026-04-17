@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于页设置 — 后台管理</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="sidebar">
+      <div class="sidebar-logo">P & Y 管理</div>
+      <ul class="sidebar-nav">
+        <li><a href="/admin">仪表盘</a></li>
+        <li><a href="/admin/entries.html">内容管理</a></li>
+        <li><a href="/admin/messages.html">读者消息</a></li>
+        <li><a href="/admin/homepage-edit.html">首页设置</a></li>
+        <li><a href="/admin/about-edit.html" class="active">关于页设置</a></li>
+        <div class="sidebar-divider"></div>
+        <li><a href="/" target="_blank">查看网站</a></li>
+        <li><a href="#" onclick="logout()">退出登录</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <div class="page-header">
+        <h1 class="page-title">关于页设置</h1>
+      </div>
+
+      <form id="aboutForm">
+        <div class="card">
+          <div class="card-title">页面标题</div>
+          <div class="form-group">
+            <label class="form-label">Hero 标题（页面顶部大图上的标题）</label>
+            <input type="text" class="form-input" id="aboutHeading">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">正文居中标题</div>
+          <div class="form-group">
+            <label class="form-label">居中标题（如"我们是Pepe和Yuan。"）</label>
+            <input type="text" class="form-input" id="contentTitle">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">图片上方文字（上段）</div>
+          <div id="topParagraphsContainer">
+            <!-- Paragraph fields will be added dynamically -->
+          </div>
+          <button type="button" class="btn btn-secondary" id="addTopParagraph">+ 添加段落</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">中间插图</div>
+          <div class="image-upload" onclick="document.getElementById('midImageFile').click()">
+            <p class="image-upload-text">点击上传图片</p>
+            <input type="file" id="midImageFile" accept="image/*" style="display:none;">
+          </div>
+          <img id="midImagePreview" class="image-preview" style="display:none;">
+        </div>
+
+        <div class="card">
+          <div class="card-title">图片下方文字（下段）</div>
+          <div id="bottomParagraphsContainer">
+            <!-- Paragraph fields will be added dynamically -->
+          </div>
+          <button type="button" class="btn btn-secondary" id="addBottomParagraph">+ 添加段落</button>
+        </div>
+
+        <button type="submit" class="btn btn-primary">保存设置</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/admin/js/admin-common.js"></script>
+  <script src="/admin/js/about-edit.js"></script>
+</body>
+</html>

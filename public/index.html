@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pepe & Yuan's Love Diary</title>
+  <meta name="description" content="Pepe & Yuan的爱情日记，记录从非洲到深圳的旅程">
+  <link rel="icon" type="image/png" href="/public/favicon.png">
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">P & Y</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/" class="active">首页</a></li>
+      <li><a href="/about.html">关于</a></li>
+      <li><a href="/timeline.html">旅程</a></li>
+    </ul>
+    <div class="nav-hamburger" id="navHamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg" style="background-image:url('/uploads/cover.jpg')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-label">Pepe & Yuan's Love Diary</div>
+      <h1 class="hero-title" id="heroTitle">FROM AFRICA TO SHENZHEN</h1>
+      <p class="hero-subtitle" id="heroSubtitle"></p>
+      <a href="/timeline.html" class="hero-cta" id="heroCta">浏览我们的旅程</a>
+    </div>
+  </section>
+
+  <!-- Two Column: Text + Image -->
+  <section class="two-col reveal">
+    <div class="two-col-text">
+      <div class="two-col-label">Our Story</div>
+      <h2 class="two-col-heading">跨越大陆的相遇</h2>
+      <p class="two-col-body">
+        我们在非洲的阳光下相遇，那时谁也没有想到，<br>
+        这个偶然的开始会把我们带去那么远的地方。<br>
+        从内罗毕到深圳，每一步都是我们的故事。
+      </p>
+    </div>
+    <div class="two-col-image">
+      <img src="/uploads/nairobi.jpg" alt="我们的相遇" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Image Grid -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">Our Journey</div>
+        <h2 class="section-title">旅途瞬间</h2>
+      </div>
+    </div>
+    <div class="image-grid reveal">
+      <div class="image-grid-item"><img src="/uploads/mombasa.jpg" alt="蒙巴萨" loading="lazy"></div>
+      <div class="image-grid-item"><img src="/uploads/zanzibar1.jpg" alt="桑给巴尔" loading="lazy"></div>
+      <div class="image-grid-item"><img src="/uploads/canton.jpg" alt="广州" loading="lazy"></div>
+      <div class="image-grid-item image-grid-full"><img src="/uploads/angkor2.jpg" alt="吴哥窟" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- Two Column: Image + Text (reverse) -->
+  <section class="two-col reverse reveal">
+    <div class="two-col-text">
+      <div class="two-col-label">New Home</div>
+      <h2 class="two-col-heading">大梅沙的新家</h2>
+      <p class="two-col-body">
+        深圳大梅沙，有山有海。<br>
+        窗户外面能看到海，早上醒来能听到浪声。<br>
+        这就是我们想要的生活。
+      </p>
+    </div>
+    <div class="two-col-image">
+      <img src="/uploads/home.jpg" alt="我们的新家" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Overlay Section -->
+  <section class="overlay-section">
+    <div class="overlay-section-bg" style="background-image:url('/uploads/pattaya.jpg')"></div>
+    <div class="overlay-section-content reveal">
+      <div class="overlay-section-label">Memories</div>
+      <h2 class="overlay-section-title">从我们跨越大陆的相遇，<br>到在深圳共同生活的每一天</h2>
+      <p class="overlay-section-body">这里记录着爱情、旅途与时间</p>
+    </div>
+  </section>
+
+  <!-- Latest Stories -->
+  <section class="section section-cream">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">Recent Stories</div>
+        <h2 class="section-title">最近的故事</h2>
+      </div>
+      <div class="stories-grid" id="latestEntries">
+        <div class="loading"><div class="loading-spinner"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us -->
+  <section class="section contact-section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Contact Us</h2>
+      </div>
+      <div class="contact-wrap reveal">
+        <p class="contact-desc">如果你喜欢我们的故事，或者想对我们说些什么，欢迎留言。</p>
+        <form class="contact-form" id="contactForm">
+          <div class="contact-row">
+            <div class="contact-field">
+              <label class="contact-label" for="contactName">Name</label>
+              <input type="text" class="contact-input" id="contactName" placeholder="你的名字" required>
+            </div>
+            <div class="contact-field">
+              <label class="contact-label" for="contactEmail">Email</label>
+              <input type="email" class="contact-input" id="contactEmail" placeholder="你的邮箱" required>
+            </div>
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="contactMessage">Message</label>
+            <textarea class="contact-textarea" id="contactMessage" rows="5" placeholder="写下你想说的..." required></textarea>
+          </div>
+          <button type="submit" class="contact-submit" id="contactSubmit">发送消息</button>
+        </form>
+        <div class="contact-success" id="contactSuccess" style="display:none;">
+          <p>感谢你的留言，我们会认真阅读每一条消息。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">P & Y</div>
+    <ul class="footer-nav">
+      <li><a href="/">首页</a></li>
+      <li><a href="/about.html">关于</a></li>
+      <li><a href="/timeline.html">旅程</a></li>
+    </ul>
+    <div class="footer-divider"></div>
+    <p class="footer-text">
+      Pepe & Yuan的爱情日记<br>
+      记录我们的旅程，也希望带来一点点温暖
+    </p>
+  </footer>
+
+  <script src="/public/js/main.js"></script>
+  <script src="/public/js/home.js"></script>
+</body>
+</html>
