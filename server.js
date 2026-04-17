@@ -35,6 +35,15 @@ if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 1);
 }
 
+// Redirect pepeyuan.com to www.pepeyuan.com
+app.use((req, res, next) => {
+  const host = req.get('host');
+  if (host === 'pepeyuan.com') {
+    return res.redirect(301, `https://www.pepeyuan.com${req.originalUrl}`);
+  }
+  next();
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session(sessionConfig));
