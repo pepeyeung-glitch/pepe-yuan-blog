@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.pepeyuan.com/public/sitemap.xml
