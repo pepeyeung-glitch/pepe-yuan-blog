@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepe Yeung | HR Automation Architect | 楊天沛</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400&family=Noto+Serif+HK:wght@400;700&family=Work+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f3ee;
+            --text: #1a1a1a;
+            --accent: #c41e3a;
+            --muted: #666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Noto Serif HK', 'Work Sans', serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        section {
+            min-height: 100vh;
+            padding: 10vh 10vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fraunces', 'Noto Serif HK', serif;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        /* --- Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-number {
+            font-family: 'Fraunces', serif;
+            font-size: 1rem;
+            opacity: 0.4;
+            letter-spacing: 0.2rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        /* --- Slide 1: Hero --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero-text .title-tag {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--muted);
+            letter-spacing: 0.2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--text);
+            padding-left: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .hero-img-container {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            overflow: hidden;
+            border: 2px solid var(--text);
+            box-shadow: 20px 20px 0px rgba(0,0,0,0.05);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            position: absolute;
+            top: -10%;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* --- Slide 2: Manifesto --- */
+        .manifesto {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .manifesto h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .manifesto p {
+            font-size: 1.6rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--muted);
+            line-height: 2;
+        }
+
+        .chinese-highlight {
+            display: block;
+            font-size: 2.2rem;
+            font-style: normal;
+            color: var(--text);
+            margin-top: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Slide 3: Bimodal Strategy --- */
+        .strategy {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .strategy-card {
+            border: 2px solid var(--text);
+            padding: 4rem;
+            transition: all 0.4s ease;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .strategy-card.dark {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .strategy-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Slide 4: Global Impact --- */
+        .impact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .impact-img-container {
+            width: 100%;
+            height: 65vh;
+            overflow: hidden;
+            border: 2px solid var(--text);
+            position: relative;
+        }
+
+        .impact-img {
+            width: 100%;
+            height: 140%;
+            object-fit: cover;
+            position: absolute;
+            top: -20%;
+        }
+
+        /* --- Slide 5: The Arsenal --- */
+        .arsenal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+
+        .arsenal-item {
+            text-align: center;
+            padding: 3rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: #fff;
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .arsenal-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .arsenal-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 2rem;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+            flex-shrink: 0;
+        }
+        .arsenal-item:hover img { filter: grayscale(0%); }
+
+        .arsenal-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1rem;
+            height: 5.5rem; /* Force uniform height for up to 3 lines */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* --- Slide 6: CTA --- */
+        .cta-section {
+            background: var(--text);
+            color: var(--bg);
+            text-align: center;
+            padding: 15vh 10vw;
+        }
+
+        .cta-section h1 {
+            font-size: 5.5vw;
+            margin-bottom: 3rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .hero, .strategy, .impact, .arsenal-grid {
+                grid-template-columns: 1fr;
+            }
+            section { padding: 5rem 2rem; }
+            .hero-img-container { height: 55vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1: Hero -->
+    <section id="hero">
+        <div class="hero">
+            <div class="hero-text reveal">
+                <div class="slide-number">01 / THE ARCHITECT</div>
+                <div class="title-tag">HR DIGITALIZATION HEAD<br>人力資源數碼化主管</div>
+                <h1>PEPE<br>YEUNG<br><span style="font-size: 0.6em;">楊天沛</span></h1>
+                <p style="font-size: 1.4rem; margin-top: 2.5rem; max-width: 550px; font-weight: 300;">
+                    "Architecting the Bimodal Future of HR through Precision Automation and Strategic Systems Thinking."
+                    <br>
+                    <span style="font-weight: 700; display: block; margin-top: 1rem;">
+                        以系統思維與精準自動化，構建人力資源的「雙模」未來。
+                    </span>
+                </p>
+            </div>
+            <div class="hero-img-container reveal" style="transition-delay: 0.2s;">
+                <img src="assets/avatar.png" alt="Pepe Yeung" class="hero-img" id="heroAvatar">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Manifesto -->
+    <section id="manifesto">
+        <div class="manifesto reveal">
+            <div class="slide-number">02 / THE VISION</div>
+            <h2>ENDING THE AGE OF FIRE-FIGHTING</h2>
+            <p>
+                Transforming the cognitive complexity of HR into elegant digital ecosystems.
+                <span class="chinese-highlight">終結「救火」時代：將複雜的 HR 業務轉化為優雅的數碼生態系統。</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 3: Bimodal Strategy -->
+    <section id="strategy">
+        <div class="slide-number reveal">03 / THE STRATEGY</div>
+        <div class="strategy">
+            <div class="strategy-card reveal">
+                <h3>MODE 1: STABILITY<br>穩健防禦</h3>
+                <p>Ensuring the bedrock of HR operations is unshakable. 確保 HR 營運底座堅如磐石。</p>
+                <ul style="margin-top: 2rem; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.8rem;">• Core Data Integrity / 核心數據治理</li>
+                    <li style="margin-bottom: 0.8rem;">• Global Compliance / 全球合規運作</li>
+                    <li style="margin-bottom: 0.8rem;">• Standardized Process / 標準化流程</li>
+                </ul>
+            </div>
+            <div class="strategy-card dark reveal" style="transition-delay: 0.2s;">
+                <h3>MODE 2: AGILITY<br>敏捷進攻</h3>
+                <p>Deploying the offensive engine. AI and RPA for exponential efficiency. 部署進攻引擎，以 AI 與 RPA 實現效率指數級增長。</p>
+                <ul style="margin-top: 2rem; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.8rem;">• 80% Automation Target / 80% 自動化目標</li>
+                    <li style="margin-bottom: 0.8rem;">• RPA Bot Fleet (Yingdao) / 影刀 RPA 機器人集群</li>
+                    <li style="margin-bottom: 0.8rem;">• Generative AI Workflows / 生成式 AI 流程重構</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Global Impact -->
+    <section id="impact">
+        <div class="slide-number reveal">04 / TRACK RECORD</div>
+        <div class="impact">
+            <div class="impact-img-container reveal">
+                <img src="assets/global_vision.png" alt="Global Vision" class="impact-img" id="impactImg">
+            </div>
+            <div class="reveal" style="transition-delay: 0.2s;">
+                <h2>GLOBAL BATTLEGROUND<br>全球戰場</h2>
+                <p style="font-size: 1.8rem; margin: 2rem 0; font-weight: 700;">3 Years. 2 Continents. 4,000+ Users.</p>
+                <p style="font-size: 1.2rem;">
+                    From automating payroll in Tanzania to leading HR digital review in China. Proven capability in scaling complex systems across cross-cultural environments.
+                    <br><br>
+                    從坦桑尼亞的薪資自動化轉型，到中國區的 HR 數碼化專案回顧。具備在跨文化環境中實現複雜系統規模化落地的卓越實戰能力。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: The Arsenal -->
+    <section id="arsenal">
+        <div class="slide-number reveal">05 / THE STRATEGIC STACK</div>
+        <div style="text-align: center;">
+            <h2 class="reveal">THE ARSENAL<br>戰略工具棧</h2>
+            <div class="arsenal-grid">
+                <div class="arsenal-item reveal" style="transition-delay: 0.1s;">
+                    <h4>PROJECT GOVERNANCE<br>項目治理</h4>
+                    <img src="assets/pmp_icon.png" alt="PMP Certificate">
+                    <p>PMP® Certified Rigor</p>
+                </div>
+                <div class="arsenal-item reveal" style="transition-delay: 0.3s;">
+                    <h4>LOW-CODE<br>低代碼開發</h4>
+                    <img src="assets/lowcode_icon.png" alt="Low-code Development">
+                    <p>JianDaoYun Expert</p>
+                </div>
+                <div class="arsenal-item reveal" style="transition-delay: 0.5s;">
+                    <h4>AI AGENTS<br>人工智能代理</h4>
+                    <img src="assets/ai_icon.png" alt="AI Agents">
+                    <p>Autonomous Workflows</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: CTA -->
+    <section class="cta-section">
+        <div class="slide-number reveal" style="color: #fff; opacity: 0.2;">06 / THE NEXT CHAPTER</div>
+        <h1 class="reveal">LET'S ARCHITECT THE FUTURE.<br>共建未來。</h1>
+        <p class="reveal" style="font-size: 2rem; opacity: 0.8; font-style: italic; font-family: 'Fraunces', serif; margin-bottom: 4rem;">
+            "HR is not a cost center. It's a high-efficiency data engine."
+        </p>
+        <div class="reveal" style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 3rem; font-size: 1.1rem; letter-spacing: 0.2rem;">
+            PEPEYEUNG@QQ.COM &nbsp; | &nbsp; +86 182 5033 1885
+        </div>
+    </section>
+
+    <script>
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            
+            // Hero Parallax
+            const heroAvatar = document.getElementById('heroAvatar');
+            if (heroAvatar) heroAvatar.style.transform = `translateY(${scroll * 0.15}px)`;
+
+            // Impact Parallax
+            const impactImg = document.getElementById('impactImg');
+            const impactSection = document.getElementById('impact');
+            if (impactImg && impactSection) {
+                const offset = impactSection.offsetTop;
+                if (scroll > offset - window.innerHeight) {
+                    impactImg.style.transform = `translateY(${(scroll - offset) * 0.2}px)`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

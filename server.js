@@ -51,6 +51,7 @@ app.use(session(sessionConfig));
 // Static files (local uploads for dev; Supabase Storage used in production via URLs)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/pepe', express.static(path.join(__dirname, 'public', 'pepe')));
 
 // Public API
 app.use('/api', apiRoutes);
