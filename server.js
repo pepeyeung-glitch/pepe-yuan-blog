@@ -85,6 +85,10 @@ app.get('/admin/:page.html', authMiddleware, (req, res) => {
 });
 
 // Frontend pages
+app.get('/pepe', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pepe', 'index.html'));
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
